@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+		    // JavaScript的作用：页面交互处理
+		    // JS的组成： JavaScirpt = ECMAScript + DOM + BOM
+		    // ECMAScript: 语法规范标准（变量、类型、运算符、结构化、函数等语法规范）
+		    // DOM：JS中的核心，Document Object Model 文档对象模型
+		    // BOM： Browser Object Model 浏览器对象模型
+		    		    	    
+			// 操作1：页面预加载函数  BOM操作 
+			// Javascript - BOM(Browser Object Model)
+			// eg. window.onload = function(){......}
+			
+			// 操作2：文档流document-DOM操作
+			// 文档是一种独占模式，一个页面在开启运行时有且只有1个文档流对象，在重复使用document.write()输出是会进行覆盖。
+			
+			// 操作3：DOM如何获取一个文档标签对象
+			// var obj = document.getElementById("标签id属性值");
+			
+			// 操作4：DOM如何控制文档标签对象的属性（信息属性、事件动作）
+			// obj.属性名称 的基本语法格式实现
+			// eg. 修改获取对象的name属性值
+			//     obj.name = "新值";
+			// eg. 动态绑定对象的单击事件动作处理
+			//     obj.onclick = function(){......}
+			// eg. 动态更新对象的css样式
+			//     obj.style.样式属性名称 = 值;
+			
+			
+			// 二级联动的下拉菜单（基础版、高级班版）
+			
+			
+			window.onload = function(){
+				sayHello();
+				
+				// 通过DOM结果获取ID为btn的按钮对象 dg
+				var btn = document.getElementById("btn");
+				//document.write(btn.name);
+				console.log(btn.name);
+				btn.onclick = function(){
+					console.log("我被点击了");
+					btn.style.display = "none";
+				}
+				
+				/*
+				 DOM对象进行访问操作的基本原则：
+				 通过document.getEelementById("ID属性值");获取对象
+				 obj.属性 = 常量值；   obj.name = "嘿嘿";
+				 obj.事件名称 = function(){......}  obj.onClick = function(){...}
+				 * */
+			}
+			
+			function sayHello(){
+				// javasciprt - DOM(Document Object Model)
+				//document.write("你好");
+				console.log("hi好");
+			}
+			
+			// DOM：操作文档内部元素
+			//     操作：定位、添加事件、动态设置样式规则等
+			
+			
+		
+		</script>
+	</head>
+	<body>
+		
+		<button id="btn" name="哈哈">hello</button>
+	</body>
+</html>

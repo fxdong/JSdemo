@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>下拉菜单</title>
+		<script>
+			//步骤1：创建一个页面预加载函数
+			window.onload=function(){
+				initProvince();
+			}
+			//初始化province下拉菜单的方法
+			function initProvince(){
+				//步骤2：动态初始化select标签的option选项，初始时使二级菜单隐藏
+				document.getElementById("city").style.display="none";
+				//步骤2-1：获取select标签对象
+				var province=document.getElementById("province");
+				//步骤2-2：动态创建option标签对象
+				//方法1：document.createElement("标签名称")
+				//方法2：new Option("value","key")
+				var opt01=new Option("河北省","101");
+				var opt02=new Option("山东省","102");
+				opt02.checked="checked"
+				//步骤2-3：将创建好的option对象添加到province对象中
+				province.add(opt01);
+				province.add(opt02);
+				//步骤3：为select下拉菜单添加onchange事件处理方法
+				province.onchange=function(){
+					//通过obj.value的方式获得的数据为字符串类型
+					initCity(province.value);
+				}
+			}
+			//初始化city下拉菜单的方法
+			function initCity(provinceKey){
+				var city=document.getElementById("city");
+				city.style.display="block";
+				//清空city菜单中原有的option
+				city.options.length=0;
+				switch(parseInt(provinceKey)){
+					case -1:
+						city.style.display="none";
+						break;
+					case 101:
+						city.add(new Option("邯郸市","101-01"));
+						city.add(new Option("唐山市","101-02"));
+						break;
+					case 102:
+						city.add(new Option("济南市","102-01"));
+						city.add(new Option("潍坊市","102-02"));
+					break;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<select id="province">
+					<option value="-1">--请选择--</option>
+					</select>
+				</td>
+				<td>
+					<select id="city">
+					</select>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
