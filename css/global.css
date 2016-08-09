@@ -1,0 +1,18 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.container{
+	background: gray;
+	width: 990px;
+	height: 2000px;
+	margin: auto;
+}
+.header{
+	background: url(../img/logo.gif);
+	width: 990px;
+	height: 251px;
+}
+.nav{
+	ba
+}

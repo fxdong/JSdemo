@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+			#img{
+				width: 1226px;
+				height: 260px;
+				margin: auto;
+				background: url(../img/1.jpg);
+				padding-top: 200px;
+				margin-top: 100px;
+				transition: background-image 0.5s
+				
+			}
+			.menu{
+				width: 250px;
+				height: 45px;
+				margin: auto;
+				margin-top: 150px;
+				padding-top: 5px;
+			}
+			.item{
+				width: 40px;
+				height: 40px;
+				list-style: none;
+				line-height: 40px;
+				border-radius: 20px;
+				float: left;
+				background: #333333;
+				margin-left: 5px;
+				margin-right: 5px;
+				color: white;
+				text-align: center;
+				cursor: pointer;
+			}
+			.button{
+				width: 1226px;
+				height: 50px;
+			}
+			.left{
+				width: 50px;
+				float: left;
+			}
+			.right{
+				width: 50px;
+				float: right;
+			}
+			.button #btn1{
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+			}
+			.button #btn2{
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				init();
+			}
+			function init(){
+				next();
+				setTimeout("init()",3000);
+			}
+			var arr=new Array("1.jpg","2.jpg","33.jpg","44.jpg","55.jpg");
+			var x=100;
+			
+			function change(num){
+				var a=document.getElementById("img");
+				a.style.background="url(../img/"+arr[num]+")";
+				var itemList=document.getElementsByClassName("item");
+				for(var i=0;i<itemList.length;i++){
+					if(i==num){
+						itemList[i].style.background="red";
+						x=i;
+					}
+					else{
+						itemList[i].style.background="#333333";
+					}
+				}
+			}
+			
+			function next(){
+				if(x==100){
+					x=0;
+				}
+				x++;
+				if(x>arr.length-1){
+					x=0;
+				}
+				document.getElementById("img")
+				.style.background="url(../img/"+arr[x]+")";
+				var itemList=document.getElementsByClassName("item");
+				for(var i=0;i<itemList.length;i++){
+					if(i==x){
+						itemList[i].style.background="red";
+					}
+					else{
+						itemList[i].style.background="#333333";
+					}
+				}
+			}
+			function previous(){
+				if(x==100){
+					x=0;
+				}
+				x--;
+				if(x<0){
+					x=arr.length-1;
+				}
+				document.getElementById("img")
+				.style.background="url(../img/"+arr[x]+")";
+				var itemList=document.getElementsByClassName("item");
+				for(var i=0;i<itemList.length;i++){
+					if(i==x){
+						itemList[i].style.background="red";
+					}
+					else{
+						itemList[i].style.background="#333333";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="img">
+			<div class="button">
+				<div class="left"><button id="btn1" onclick="previous()">&lt;</button></div>
+				<div class="right"><button id="btn1" onclick="next()">&gt;</button></div>
+			</div>
+			<div class="menu">
+				<ul>
+					<li class="item" onclick="change(0)" style="background: red;">1</li>
+					<li class="item" onclick="change(1)">2</li>
+					<li class="item" onclick="change(2)">3</li>
+					<li class="item" onclick="change(3)">4</li>
+					<li class="item" onclick="change(4)">5</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

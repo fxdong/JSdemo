@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.con{
+				width: 510px;
+				height: 100px;
+				margin: auto;
+				margin-top: 200px;
+				background: #20B2AA;
+			}
+			.con div{
+				width: 100px;
+				height: 75px;
+				float: left;
+				padding-top: 25px;
+			}
+			input{
+				width: 100px;
+				height: 50px;
+			}
+			button{
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+			}
+			select{
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+			}
+		</style>
+		<script>
+			function getResult(){
+				var num1=parseFloat(document.getElementById("num1").value);
+				var num2=parseFloat(document.getElementById("num2").value);
+				var result=document.getElementById("result");
+				var opt=document.getElementById("opt").value;
+				switch(opt){
+					case "+":
+					result.value=num1+num2;
+					break;
+					case "-":
+					result.value=num1-num2;
+					break;
+					case "*":
+					result.value=num1*num2;
+					break;
+					case "/":
+					result.value=num1/num2;
+					break;
+					case "%":
+					result.value=num1%num2;
+					break;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="con">
+			<div>
+				<input class="num" id="num1" type="number" />
+			</div>
+			<div style="width:75px;padding-left: 25px;">
+				<select id="opt">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
+					<option value="%">%</option>
+				</select>
+			</div>
+			<div>
+				<input class="num" id="num2" type="number" />
+			</div>
+			<div style="width:75px;padding-left: 25px;">
+				<button id="equ" onclick="getResult()">=</button>
+			</div>
+			<div>
+				<input id="result" type="number" value="0" readonly="readonly"/>
+			</div>
+		</div>
+	</body>
+</html>

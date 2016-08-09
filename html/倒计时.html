@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function getTime(){
+				var time1=new Date();
+				var time2=new Date("2016/10/01 00:00:00");
+				var total=(time2.getTime()-time1.getTime())/1000;
+				var day=parseInt(total/(24*60*60));
+				console.log(day);
+				var hour=parseInt((total-day*24*60*60)/(60*60));
+				console.log(hour);
+				var min=parseInt((total-day*60*60*24-hour*60*60)/60);
+				var sec=parseInt(total-day*60*60*24-hour*60*60-min*60);
+				console.log(sec);
+				document.getElementById("time")
+				.innerHTML=day+"天"+timeForm(hour)+"时"+timeForm(min)+"分"+timeForm(sec)+"秒";
+				
+				setTimeout("getTime()",1000);
+			}
+			function timeForm(t){
+				if(t<10){
+					t="0"+t;
+				}
+				return t;
+			}
+		</script>
+	</head>
+	<body onload="getTime()">
+		距离国庆节还有：<br />
+		<span id="time"></span>
+	</body>
+</html>

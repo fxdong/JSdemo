@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				init();
+			}
+			function init(){
+				var btn1=document.getElementById("btn1");
+				var btn2=document.getElementById("btn2");
+				btn1.onclick=function(){
+					sub();
+				}
+				btn2.onclick=function(){
+					add();
+				}
+				function sub(){
+					document.getElementById("num").value--;
+				}
+				function add(){
+					document.getElementById("num").value++;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn1">-</button>
+		<input type="number" id="num" value="1"/>
+		<button id="btn2">+</button>
+	</body>
+</html>

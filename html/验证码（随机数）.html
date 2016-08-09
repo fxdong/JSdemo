@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var arr=new Array("a","b","c","d","e","f","g","h","i");
+			function showStr(){
+				var str="";
+				for(var i=0;i<4;i++){
+					str=str+arr[Math.floor(Math.random()*(arr.length))];
+				}
+				document.getElementById("num").value=str;
+			}
+		</script>
+	</head>
+	<body onload="showStr()">
+		<input type="text" id="num" readonly="readonly" 
+			style="width: 40px; background: black; color: white; text-align: center;" value="0000" />
+	</body>
+</html>

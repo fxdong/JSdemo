@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function getTime(){
+				var time=new Date();
+				var year=time.getFullYear();
+				var month=time.getMonth()+1;
+				var day=time.getDate();
+				var week=time.getDay();
+				var hour=time.getHours();
+				var min=time.getMinutes();
+				var sec=time.getSeconds();
+				document.getElementById("time")
+				.innerHTML=year+"年"+month+"月"+day+"日"+"<br/>"
+				+timeForm(hour)+"时"+timeForm(min)+"分"+timeForm(sec)+"秒"+"<br/>"
+				+"星期"+weekForm(week);
+				
+				setTimeout("getTime()",1000);
+			}
+			function timeForm(t){
+				if(t<10){
+					t="0"+t;
+					}
+					return t;
+				}
+			function weekForm(w){
+				var arr=new Array("一","二","三","四","五","六","日");
+				return arr[w-1];
+			}
+		</script>
+	</head>
+	<body onload="getTime()">
+		当前时间为<span id="time"></span>
+	</body>
+</html>

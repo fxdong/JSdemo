@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			.con{
+				width: 1226px;
+				height: 460px;
+				border: 1px solid royalblue;
+				margin: auto;
+				margin-top: 100px;
+				overflow: hidden;
+			}
+			.button{
+				width: 1226px;
+				height: 50px;
+				margin-top: 200px;
+				position: absolute;
+			}
+			.button button{
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+			}
+			.left{
+				width: 50px;
+				height: 50px;
+				float: left;
+			}
+			.right{
+				width: 50px;
+				height: 50px;
+				float: right;
+			}
+			#img{
+				width:61300px;
+				height: 460px;
+				background: #20B2AA;
+				transition: 2s;
+			}
+			.imgx{
+				width: 1226px;
+				height: 460px;
+				float: left;
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			img,a{
+				width: 1226px;
+				height: 460px;
+				margin: 0px;
+				padding: 0px;
+			}
+		</style>
+		<script>
+		var margin=0;
+			function previous(){
+				if(margin<=1226*4){
+					margin+=1226;
+					document.getElementById("img").style
+					.marginLeft=margin+"px";
+				}
+			}
+			function next(){
+				if(margin>=-1226*4){
+					margin-=1226;
+					document.getElementById("img").style
+					.marginLeft=margin+"px";
+				}else{
+					var li=document.getElementById("imgul")
+					.getElementsByTagName("li")[0];
+					document.getElementById("imgul").appendChild(li);
+					margin-=1226;
+					document.getElementById("img").style
+					.marginLeft=margin+"px";
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="con">
+			<div class="button">
+				<div class="left"><button id="btn1" onclick="previous()">&lt;</button></div>
+				<div class="right"><button id="btn1" onclick="next()">&gt;</button></div>
+			</div>
+			<div id="img">
+				<ul id="imgul">
+					<li class="imgx">
+						<a href="#">
+							<img src="../img/1.jpg"/>
+						</a>	
+					</li>
+					<li class="imgx">
+						<a href="#">
+							<img src="../img/2.jpg"/>
+						</a>	
+					</li>
+					<li class="imgx">
+						<a href="#">
+							<img src="../img/33.jpg"/>
+						</a>	
+					</li>
+					<li class="imgx">
+						<a href="#">
+							<img src="../img/44.jpg"/>
+						</a>	
+					</li>
+					<li class="imgx">
+						<a href="#">
+							<img src="../img/55.jpg"/>
+						</a>	
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+	</body>
+</html>
